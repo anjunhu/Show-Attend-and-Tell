@@ -20,7 +20,7 @@ def generate_json_data(split_path, data_path, max_captions_per_image, min_word_c
     validation_caption_tokens = []
     
     for split in ['train', 'test']:
-        annotations = json.load(open(f'./data/iot/coco_format_{split}_from_csv.json', 'r'))
+        annotations = json.load(open(f'./data/iot/coco_vocab_coco_format_{split}.json', 'r'))
         word_count = Counter()
         for img in annotations['images']:
             # print(img)

@@ -4,6 +4,7 @@ __pycache__
 batch.s
 results.out
 
-data/coco
+data/coco/*
+runs/
 model/*
 model*/model*

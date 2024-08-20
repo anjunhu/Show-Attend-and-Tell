@@ -4,7 +4,7 @@ import json
 with open('./data/coco/word_dict_coco.json', 'r') as f:
     word_dict = json.load(f)
 
-unique_missing_words = unique_entries = [
+missing_words = [
     'unlocks', 'briskly', 'disposes', 'dumpsters', 'conversed', 'shifting', 
     'apprehend', 'lightweight', 'attends', 'informally', 'patrolled', 
     'energetically', 'extracts', 'departed', 'scurried', 'rearranges', 
@@ -20,7 +20,7 @@ unique_missing_words = unique_entries = [
 next_index = max(word_dict.values()) + 1
 
 # Add the missing words to the word dictionary
-for word in unique_missing_words:
+for word in missing_words:
     if word not in word_dict:
         word_dict[word] = next_index
         next_index += 1
