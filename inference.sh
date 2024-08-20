@@ -1,0 +1,2 @@
+# python train.py --network resnet152 --model model_coco/model_resnet152_10.pth --data ./data/cocodict-iot
+python generate_caption_multi.py --network resnet152 --model model/model_resnet152_3.pth --dict-path data/coco/word_dict_coco.json

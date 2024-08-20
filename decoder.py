@@ -110,9 +110,10 @@ class Decoder(nn.Module):
                 top_preds, top_words = output[0].topk(beam_size, 0, True, True)
             else:
                 top_preds, top_words = output.view(-1).topk(beam_size, 0, True, True)
-            prev_word_idxs = top_words / output.size(1)
+            prev_word_idxs = (top_words / output.size(1)).long()
             next_word_idxs = top_words % output.size(1)
 
+            # print(prev_word_idxs)
             sentences = torch.cat((sentences[prev_word_idxs], next_word_idxs.unsqueeze(1)), dim=1)
             alphas = torch.cat((alphas[prev_word_idxs], alpha[prev_word_idxs].unsqueeze(1)), dim=1)
 

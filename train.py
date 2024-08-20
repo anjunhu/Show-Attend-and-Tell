@@ -25,7 +25,7 @@ data_transforms = transforms.Compose([
 def main(args):
     writer = SummaryWriter()
 
-    word_dict = json.load(open(args.data + '/word_dict.json', 'r'))
+    word_dict = json.load(open('./data/coco/word_dict_coco.json', 'r'))
     vocabulary_size = len(word_dict)
 
     encoder = Encoder(args.network)
@@ -191,7 +191,7 @@ if __name__ == "__main__":
     parser.add_argument('--log-interval', type=int, default=100, metavar='L',
                         help='number of batches to wait before logging training stats (default: 100)')
     parser.add_argument('--data', type=str, default='data/coco',
-                        help='path to data images (default: data/coco)')
+                        help='path to data images (default: data/iot)')
     parser.add_argument('--network', choices=['vgg19', 'resnet152', 'densenet161'], default='vgg19',
                         help='Network to use in the encoder (default: vgg19)')
     parser.add_argument('--model', type=str, help='path to model')
