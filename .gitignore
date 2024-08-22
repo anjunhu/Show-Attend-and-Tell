@@ -6,5 +6,4 @@ results.out
 
 data/coco/*
 runs/
-model/*
-model*/model*
+**/*.pth

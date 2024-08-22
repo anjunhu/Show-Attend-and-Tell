@@ -96,7 +96,7 @@ if __name__ == "__main__":
     parser.add_argument('--model', type=str, help='path to model paramters', default='model/model_vgg19_6.pth')
     parser.add_argument('--metadata-path', type=str, default='data/coco',
                         help='path to data (default: data/coco)')
-    parser.add_argument('--dict-path', type=str, default='data/iot/word_dict_coco_iot.json', help='path to dictionary file')
+    parser.add_argument('--dict-path', type=str, default='data/coco/word_dict_coco.json', help='path to dictionary file')
     parser.add_argument('--visualize', action='store_true')
     args = parser.parse_args()
 

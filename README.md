@@ -19,7 +19,7 @@ Run the preprocessing to create the needed JSON files:
 ```bash
 python generate_json_data_iot_from_coco.py  # create json file using coco dictionary.
 
-python generate_json_data_iot_from_coco.py  # create json file using iot vocabulary only. Approximately 240 words (>5 occurrences) or 600 words (all unique words) .
+python generate_json_data_iot_from_scratch.py  # create json file using iot vocabulary only. Approximately 240 words (>5 occurrences) or 600 words (all unique words) .
 
 ```
 
