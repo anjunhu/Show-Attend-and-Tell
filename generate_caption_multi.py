@@ -28,18 +28,20 @@ def generate_caption_visualization(encoder, decoder, img_path, word_dict, beam_s
     img = torch.FloatTensor(img)
     img = img.unsqueeze(0)
 
-    img_features = encoder(img)
-    img_features = img_features.expand(beam_size, img_features.size(1), img_features.size(2))
-    sentence, alpha = decoder.caption(img_features, beam_size)
+    try:
+        img_features = encoder(img)
+        img_features = img_features.expand(beam_size, img_features.size(1), img_features.size(2))
+        sentence, alpha = decoder.caption(img_features, beam_size)
 
-    token_dict = {idx: word for word, idx in word_dict.items()}
-    sentence_tokens = []
-    for word_idx in sentence:
-        sentence_tokens.append(token_dict[word_idx])
-        if word_idx == word_dict['<eos>']:
-            break
-
-    print(f'{os.path.basename(img_path)},', ' '.join(sentence_tokens[1:-1]))
+        token_dict = {idx: word for word, idx in word_dict.items()}
+        sentence_tokens = []
+        for word_idx in sentence:
+            sentence_tokens.append(token_dict[word_idx])
+            if word_idx == word_dict['<eos>']:
+                break
+        print(f'{os.path.basename(img_path)},', ' '.join(sentence_tokens[1:-1]))
+    except:
+        print(f'{os.path.basename(img_path)},', ' ')
 
     if visualize:
         img = Image.open(img_path)

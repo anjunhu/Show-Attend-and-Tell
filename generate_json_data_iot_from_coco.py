@@ -20,7 +20,7 @@ def generate_json_data(split_path, data_path, max_captions_per_image, min_word_c
     validation_caption_tokens = []
     
     for split in ['train', 'test']:
-        annotations = json.load(open(f'./data/iot/coco_vocab_coco_format_{split}.json', 'r'))
+        annotations = json.load(open(f'./data/iot-all/coco_vocab_coco_format_{split}_filtered.json', 'r'))
         word_count = Counter()
         for img in annotations['images']:
             # print(img)
@@ -45,13 +45,13 @@ def generate_json_data(split_path, data_path, max_captions_per_image, min_word_c
     train_captions = process_caption_tokens(train_caption_tokens, word_dict, max_length)
     validation_captions = process_caption_tokens(validation_caption_tokens, word_dict, max_length)
 
-    with open('./data/cocodict-iot/train_img_paths.json', 'w') as f:
+    with open('./data/iot-all/train_img_paths.json', 'w') as f:
         json.dump(train_img_paths, f)
-    with open('./data/cocodict-iot/val_img_paths.json', 'w') as f:
+    with open('./data/iot-all/val_img_paths.json', 'w') as f:
         json.dump(validation_img_paths, f)
-    with open('./data/cocodict-iot/train_captions.json', 'w') as f:
+    with open('./data/iot-all/train_captions.json', 'w') as f:
         json.dump(train_captions, f)
-    with open('./data/cocodict-iot/val_captions.json', 'w') as f:
+    with open('./data/iot-all/val_captions.json', 'w') as f:
         json.dump(validation_captions, f)
 
 

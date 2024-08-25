@@ -27,7 +27,7 @@ app = Typer()
 cli = Typer()
 
 @cli.command()
-def main(captions_path: Path='data/iot/IMERIT_2024_03_25_TEST_v5_vgg19_rn152_target.csv'):
+def main(captions_path: Path='data/iot/caption_comparison.csv'):
     # Load context
     print("Loading captions and images...")
     captions = pd.read_csv(captions_path)
@@ -97,6 +97,11 @@ def main(captions_path: Path='data/iot/IMERIT_2024_03_25_TEST_v5_vgg19_rn152_tar
             html.Plaintext('GT:    '+row['target']),
             html.Plaintext('VGG19: '+row['vgg19']),
             html.Plaintext('RN152: '+row['rn152']),
+            html.Plaintext('RN152 FT LR1e-5 EP1: '+row['rn152_ft_1']),
+            html.Plaintext('RN152 FT LR1e-5 EP5: '+row['rn152_ft_5']),
+            html.Plaintext('RN152 FT LR1e-5 EP10: '+row['rn152_ft_10']),
+            html.Plaintext('RN152 FT LR1e-4 EP1: '+row['rn152_ft_highlr_1']),
+            html.Plaintext('RN152 FT LR1e-4 EP5: '+row['rn152_ft_highlr_5']),
         ]
 
 

@@ -26,9 +26,9 @@ python generate_json_data_iot_from_scratch.py  # create json file using iot voca
 Start the training or fine-tuning from an existing checkpoint:
 
 ```bash
-python train.py --network resnet152 --data ./data/cocodict-iot --lr 1e-4 # training from scratch
+python train.py --network resnet152 --data ./data/iot-all --lr 1e-4 # training from scratch
 
-python train.py --network resnet152 --model model_coco/model_resnet152_10.pth --data ./data/cocodict-iot --lr 5e-6 # fine-tuning
+python train.py --network resnet152 --model model_coco/model_resnet152_10.pth --data ./data/iot-all --lr 5e-6 # fine-tuning
 
 ```
 

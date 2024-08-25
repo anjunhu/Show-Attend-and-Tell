@@ -190,9 +190,9 @@ if __name__ == "__main__":
                         help='regularization constant (default: 1)')
     parser.add_argument('--log-interval', type=int, default=100, metavar='L',
                         help='number of batches to wait before logging training stats (default: 100)')
-    parser.add_argument('--data', type=str, default='data/cocodict-iot ',
-                        help='path to data images (default: data/cocodict-iot)')
-    parser.add_argument('--network', choices=['vgg19', 'resnet152', 'densenet161'], default='vgg19',
+    parser.add_argument('--data', type=str, default='data/iot-all',
+                        help='path to data images (default: data/iot-all)')
+    parser.add_argument('--network', choices=['vgg19', 'resnet152', 'densenet161'], default='resnet152',
                         help='Network to use in the encoder (default: vgg19)')
     parser.add_argument('--model', type=str, help='path to model')
     parser.add_argument('--tf', action='store_true', default=False,
